@@ -10,7 +10,7 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 
 First, clone this `morning-challenges` repository and create a git branch `firstname-challenge-1`.
 
-Create a javascript file in `day-1` called `firstname-solution.js` that, when run using `node`, computes and prints the described sum to the console (`console.log(sum)`).
+Create a javascript file in the current directory `day-1` called `firstname-solution.js` that, when run using `node`, computes and prints the described sum to the console (`console.log(sum)`).
 
 It should be runnable by the command `node firstname-solution.js` in Terminal.app.
 
