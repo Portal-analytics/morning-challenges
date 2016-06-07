@@ -4,7 +4,7 @@
 
 Fucking make sales, you bitch.
 
-Create a program that generates a gif that displays those words one at a time, in order, for half a second each. Running `node main.js` should generate this gif. If arguments are suppied (ex: `node main.js "Portal Analytics Rocks!"`, generate a gif with those words.
+Create a program that generates a gif that displays those words one at a time, in order, for half a second each. Running `node main.js` should generate this gif. If arguments are suppied (ex: `node main.js "Portal Analytics Rocks!"`, generate a gif with those words. The gif should be saved as "message.gif" in the `day-2` directory.
 
 ## Answer submission
 
