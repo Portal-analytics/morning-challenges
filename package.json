@@ -1,0 +1,27 @@
+{
+  "name": "solution-json",
+  "version": "1.0.0",
+  "description": "Has everything neededto create gifs",
+  "main": "testGIF.js",
+  "dependencies": {
+    "canvas": "^1.3.16",
+    "minimist": "^1.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Portal-analytics/morning-challenges.git"
+  },
+  "keywords": [
+    "GIF"
+  ],
+  "author": "Austin and Matt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Portal-analytics/morning-challenges/issues"
+  },
+  "homepage": "https://github.com/Portal-analytics/morning-challenges#readme"
+}
