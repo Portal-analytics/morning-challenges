@@ -2,10 +2,16 @@
 
 ## Problem
 
-Bootstrap isn't the only way to make applications that look good. Use the React Material-UI library to make a web page that has the fields necessary to create a blog post entry.
+Help! Portal Analytics has no way to keep track of the requests it's recieving to build applications and is missing out on deals because of it.
 
-It should have a Title Bar (http://www.material-ui.com/#/components/app-bar) a Title input, Body input, and a submit button. When the user clicks submit, send a javascript alert (`alert(message)`) with the title and description.
+Build a Contact Tracker application in React. It should have a title at the top of the page, three inputs (Contract Name, Description, Price), a submit button, and a list of contracts (displaying Title and Price). When the user clicks submit, add the Contract to the list.
+
+This should be solved using pair programming, so just submit one branch and PR for the two of you.
 
 ## Answer submission
 
 Be sure to include all the scaffolding necessary to build the project on our machines.
+
+## Hints
+
+If you have extra time, add CSS styling to make the background of the page grey and the submit button blue with white text.
