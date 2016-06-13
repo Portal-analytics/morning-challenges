@@ -20,8 +20,9 @@ For your title and for information for the modal, pull from [this information](h
 ### Installation
 
 Google provides ample documentation on this platform. View their installation guidelines [here](http://www.material-ui.com/#/get-started/installation)  
-Make sure you include `injectTapEventPlugin` in you Index.js  
 
-As always create your basic react app, add material-ui, then `npm start`
+We have provided some boilerplate code to get started. It includes sample Material UI Code that should run from the getgo. It was taken from the example section under Material UI github [here](https://github.com/callemall/material-ui)
+
+As always `npm install`, add material-ui, then `npm start`
 
 Good Luck!
