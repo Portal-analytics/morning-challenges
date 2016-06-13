@@ -2,11 +2,14 @@
  * In this file, we create a React component
  * which incorporates components providedby material-ui.
  */
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import Dialog from 'material-ui/Dialog';
-import {deepOrange500} from 'material-ui/styles/colors';
+import { deepOrange500 } from 'material-ui/styles/colors';
 import FlatButton from 'material-ui/FlatButton';
+import AppBar from 'material-ui/AppBar';
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
@@ -35,6 +38,12 @@ class Main extends Component {
     };
   }
 
+  handleToggle() {
+    this.setState({
+      open: !this.state.open,
+    });
+  }
+
   handleRequestClose() {
     this.setState({
       open: false,
@@ -59,18 +68,25 @@ class Main extends Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div style={styles.container}>
+        <AppBar
+          title="My Web Application"
+          iconClassNameRight="muidocs-icon-navigation-expand-more"
+          onTouchTap={this.handleToggle}
+        />
+        <Drawer open={this.state.open}>
+          <MenuItem>About</MenuItem>
+          <MenuItem>More Info</MenuItem>
+        </Drawer>
           <Dialog
             open={this.state.open}
-            title="Super Secret Password"
+            title="Display Message!"
             actions={standardActions}
             onRequestClose={this.handleRequestClose}
           >
-            1-2-3-4-5
+            This is a display message!
           </Dialog>
-          <h1>Material-UI</h1>
-          <h2>example project</h2>
           <RaisedButton
-            label="Super Secret Password"
+            label="ClickMe!"
             secondary={true}
             onTouchTap={this.handleTouchTap}
           />
