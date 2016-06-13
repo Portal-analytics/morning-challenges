@@ -40,11 +40,7 @@ const config = {
       {
         // React-hot loader and
         test: /\.jsx?$/, // All .js files
-        loader: "babel-loader", 
-        query:
-          {
-            presets:['es2015', 'react']
-          },
+        loaders: ['react-hot', 'babel'],
         exclude: [nodeModulesPath],
       },
     ],
