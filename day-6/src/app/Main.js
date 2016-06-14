@@ -5,7 +5,7 @@
 import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import Dialog from 'material-ui/Dialog';
-import { deepOrange500 } from 'material-ui/styles/colors';
+import { lightBlack } from 'material-ui/styles/colors';
 import FlatButton from 'material-ui/FlatButton';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
@@ -16,13 +16,12 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 const styles = {
   container: {
     textAlign: 'center',
-    paddingTop: 200,
   },
 };
 
 const muiTheme = getMuiTheme({
   palette: {
-    accent1Color: deepOrange500,
+    accent1Color: lightBlack,
   },
 });
 
@@ -30,38 +29,50 @@ class Main extends Component {
   constructor(props, context) {
     super(props, context);
 
-    this.handleRequestClose = this.handleRequestClose.bind(this);
-    this.handleTouchTap = this.handleTouchTap.bind(this);
+    this.handleButtonRequestClose = this.handleButtonRequestClose.bind(this);
+    this.handleButtonTouchTap = this.handleButtonTouchTap.bind(this);
+    this.handleDrawerTouchTap = this.handleDrawerTouchTap.bind(this);
+    this.handleDrawerRequestClose = this.handleDrawerRequestClose.bind(this);
+
 
     this.state = {
-      open: false,
+      openButton: false,
+      openDrawer: false,
     };
   }
 
-  handleToggle() {
+  handleButtonRequestClose() {
     this.setState({
-      open: !this.state.open,
+      openButton: false,
     });
   }
 
-  handleRequestClose() {
+  handleButtonTouchTap() {
     this.setState({
-      open: false,
+      openButton: true,
     });
   }
 
-  handleTouchTap() {
+  handleDrawerRequestClose() {
     this.setState({
-      open: true,
+      openDrawer: false,
     });
   }
+
+  handleDrawerTouchTap() {
+    this.setState({
+      openDrawer: true,
+    });
+  }
+
+
 
   render() {
     const standardActions = (
       <FlatButton
-        label="Ok"
+        label="Close"
         primary={true}
-        onTouchTap={this.handleRequestClose}
+        onTouchTap={this.handleButtonRequestClose}
       />
     );
 
@@ -69,26 +80,29 @@ class Main extends Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <div style={styles.container}>
         <AppBar
-          title="My Web Application"
+          title="Zach Galifianakis"
           iconClassNameRight="muidocs-icon-navigation-expand-more"
-          onTouchTap={this.handleToggle}
+          onTouchTap={this.handleDrawerTouchTap}
         />
-        <Drawer open={this.state.open}>
-          <MenuItem>About</MenuItem>
+        <Drawer open={this.state.openDrawer}>
+          <MenuItem onTouchTap={this.handleButtonTouchTap}>About</MenuItem>
           <MenuItem>More Info</MenuItem>
+          <MenuItem onTouchTap={this.handleDrawerRequestClose}>Close</MenuItem>
         </Drawer>
           <Dialog
-            open={this.state.open}
-            title="Display Message!"
+            open={this.state.openButton}
+            title="Zacharius Knight Galifianakis"
             actions={standardActions}
-            onRequestClose={this.handleRequestClose}
+            onRequestClose={this.handleButtonRequestClose}
           >
-            This is a display message!
+            <p>Born: October 1, 1969</p>
+            <p>Birth Place: Wikesboro, N.C.</p>
+            <p>Famous Movies: The Hangover, The Hangover Part 2, The Hangover Part 3, The Lego Batman Movie</p>
           </Dialog>
           <RaisedButton
             label="ClickMe!"
             secondary={true}
-            onTouchTap={this.handleTouchTap}
+            onTouchTap={this.handleButtonTouchTap}
           />
         </div>
       </MuiThemeProvider>
