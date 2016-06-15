@@ -33,6 +33,7 @@ class Main extends Component {
     this.handleRequestClose = this.handleRequestClose.bind(this);
     this.handleTouchTap = this.handleTouchTap.bind(this);
     this.handleDrawerTouchTap = this.handleDrawerTouchTap.bind(this);
+    this.toggleDialog = this.toggleDialog.bind(this);
 
     this.state = {
       open: false,
@@ -50,18 +51,25 @@ class Main extends Component {
       open: false,
     });
   }
+
   handleDrawerTouchTap() {
     this.setState({
       open: !this.state.open
     });
   }
 
+  toggleDialog() {
+    this.setState({
+      dialogOpen: !this.state.dialogOpen,
+    });
+  }
+
   render() {
     const standardActions = (
       <FlatButton
-        label="Ok"
-        primary={true}
-        onTouchTap={this.handleRequestClose}
+        label="Cancel"
+        secondary={true}
+        onTouchTap={this.toggleDialog}
       />
     );
 
@@ -77,13 +85,13 @@ class Main extends Component {
         width={200}
         open={this.state.open}
         >
-        <MenuItem> Dont Touch</MenuItem>
-        <MenuItem> Nah seriously dont touch it</MenuItem>
-        <MenuItem> NO YOU DONT GET IT DONT DO IT </MenuItem>
+          <MenuItem> Dont Touch</MenuItem>
+          <MenuItem> Nah seriously dont touch it</MenuItem>
+          <MenuItem> NO YOU DONT GET IT DONT DO IT </MenuItem>
 
         </Drawer>
           <Dialog
-            open={this.state.open}
+            open={this.state.dialogOpen}
             title="Why on Earth would you do that"
             actions={standardActions}
             onRequestClose={this.handleRequestClose}
@@ -95,7 +103,7 @@ class Main extends Component {
           <RaisedButton
             label="Click me"
             secondary={true}
-            onTouchTap={this.handleTouchTap}
+            onTouchTap={this.toggleDialog}
           />
         </div>
       </MuiThemeProvider>
