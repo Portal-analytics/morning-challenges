@@ -91,7 +91,7 @@ class Main extends Component {
             You monster
           </Dialog>
           <h1>The Ultimate Guide to Zach Galififianakis</h1>
-          <h2>example project</h2>
+          <h2>Whatta guy</h2>
           <RaisedButton
             label="Click me"
             secondary={true}
