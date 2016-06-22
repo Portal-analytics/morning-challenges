@@ -9,6 +9,9 @@ import {deepOrange500} from 'material-ui/styles/colors';
 import FlatButton from 'material-ui/FlatButton';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import AppBar from 'material-ui/AppBar';
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
 
 const styles = {
   container: {
@@ -29,6 +32,8 @@ class Main extends Component {
 
     this.handleRequestClose = this.handleRequestClose.bind(this);
     this.handleTouchTap = this.handleTouchTap.bind(this);
+    this.handleDrawerTouchTap = this.handleDrawerTouchTap.bind(this);
+    this.toggleDialog = this.toggleDialog.bind(this);
 
     this.state = {
       open: false,
@@ -43,41 +48,67 @@ class Main extends Component {
 
   handleTouchTap() {
     this.setState({
-      open: true,
+      open: false,
+    });
+  }
+
+  handleDrawerTouchTap() {
+    this.setState({
+      open: !this.state.open
+    });
+  }
+
+  toggleDialog() {
+    this.setState({
+      dialogOpen: !this.state.dialogOpen,
     });
   }
 
   render() {
     const standardActions = (
       <FlatButton
-        label="Ok"
-        primary={true}
-        onTouchTap={this.handleRequestClose}
+        label="Cancel"
+        secondary={true}
+        onTouchTap={this.toggleDialog}
       />
     );
 
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div style={styles.container}>
+        <AppBar
+        title="Mr. Galififianakis"
+        onTouchTap = {this.handleDrawerTouchTap}
+        />
+        <Drawer
+        docked={false}
+        width={200}
+        open={this.state.open}
+        >
+          <MenuItem> Dont Touch</MenuItem>
+          <MenuItem> Nah seriously dont touch it</MenuItem>
+          <MenuItem> NO YOU DONT GET IT DONT DO IT </MenuItem>
+
+        </Drawer>
           <Dialog
-            open={this.state.open}
-            title="Super Secret Password"
+            open={this.state.dialogOpen}
+            title="Why on Earth would you do that"
             actions={standardActions}
             onRequestClose={this.handleRequestClose}
           >
-            1-2-3-4-5
+            You monster
           </Dialog>
-          <h1>Material-UI</h1>
-          <h2>example project</h2>
+          <h1>The Ultimate Guide to Zach Galififianakis</h1>
+          <h2>Whatta guy</h2>
           <RaisedButton
-            label="Super Secret Password"
+            label="Click me"
             secondary={true}
-            onTouchTap={this.handleTouchTap}
+            onTouchTap={this.toggleDialog}
           />
         </div>
       </MuiThemeProvider>
     );
   }
 }
-
+export default AppBar;
 export default Main;
